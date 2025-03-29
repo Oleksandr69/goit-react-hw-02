@@ -1,5 +1,5 @@
 import { useState } from "react";
-import App from "../app/App";
+// import App from "../app/App";
 import css from './Options.module.css'
 
 const Options = ({good, neutral, bad, totalFeedback, onUpdate}) => {
