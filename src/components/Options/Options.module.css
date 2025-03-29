@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.button {
+  border: 2px solid rgb(97, 96, 96);
+  border-radius: 2px;
+  background-color: #bdb4b4;
+  font-size: 20px;
+}
