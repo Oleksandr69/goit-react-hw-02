@@ -3,5 +3,6 @@
   flex-direction: column;
   gap: 18px;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: normal;
+  color: black;
 }

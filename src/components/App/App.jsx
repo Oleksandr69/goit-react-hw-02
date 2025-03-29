@@ -8,7 +8,16 @@ import Notification from '../Notification/Notification'
 
 const App = () => {
   
-  const [counter, setCounter] = useState({good: 0, neutral: 0, bad: 0});
+  const [counter, setCounter] = useState(() => {
+    const savedClicks = window.localStorage.getItem("saved-clicks");
+    // console.log(savedClicks);
+      if (savedClicks !== null) {
+        return JSON.parse(savedClicks);
+      } else {
+        return { good: 0, neutral: 0, bad: 0 };
+      }
+    } 
+  );
 
   const totalFeedback = (counter.good + counter.neutral + counter.bad);
   const positiveFeedback = Math.round((counter.good / totalFeedback) * 100);
@@ -16,13 +25,15 @@ const App = () => {
   const updateFeedback = (feedbackType) => {
     if (feedbackType == 'reset') {
       setCounter({ good: 0, neutral: 0, bad: 0 });
-      
     } else {
       setCounter({ ...counter, [feedbackType]: counter[feedbackType] + 1 });
     }
   }
 
-  // useEffect();
+  useEffect(() => {
+    // console.log({...counter});
+    window.localStorage.setItem("saved-clicks", JSON.stringify({...counter}));
+  }, [counter]);
 
     return (
     <div>

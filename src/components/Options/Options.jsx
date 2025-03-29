@@ -1,11 +1,9 @@
 import { useState } from "react";
-// import App from "../app/App";
 import css from './Options.module.css'
 
 const Options = ({good, neutral, bad, totalFeedback, onUpdate}) => {
 
-  
-  return (
+    return (
     totalFeedback ? 
       (<ul className={css.list}>
         <li><button className={css.button} onClick={() => onUpdate('good')}>Good</button></li>
